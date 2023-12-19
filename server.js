@@ -154,8 +154,8 @@ const usersData = [
 ];
 
 app.get('/users', (req, res) => {
-    const offset = req.query.offset || 0;
-    const limit = req.query.limit || 20;
+    const offset = Number(req.query.offset) || 0;
+    const limit = Number(req.query.limit) || 20;
     
   
     const paginatedUsers = usersData.slice(offset, offset + limit);
