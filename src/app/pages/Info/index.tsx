@@ -58,7 +58,7 @@ const Info = () => {
       </form>
 
       {!!task?.name && 
-        <PDFDownloadLink document={<MyDocument name='' />} fileName="somename.pdf">
+        <PDFDownloadLink document={<MyDocument name={task.name} />} fileName="somename.pdf">
           {({ blob, url, loading, error }) => (loading ? 'Loading document...' : 'Download now!')}
         </PDFDownloadLink>}
     </>
