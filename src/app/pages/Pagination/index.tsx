@@ -42,7 +42,7 @@ function Pagination() {
   const [dataSource, setDataSource] = useState<DataType[]>();
   const getUsers = async (limit: number, page: number) => {
     const offset = (page - 1) * limit;
-    const response = await axios.get(`http://192.168.0.20:3001/users?offset=${offset}&limit=${limit}`)
+    const response = await axios.get(`http://localhost:3001/users?offset=${offset}&limit=${limit}`)
     setDataSource(response.data);    
   }
   
