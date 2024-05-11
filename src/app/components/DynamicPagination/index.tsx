@@ -20,7 +20,7 @@ const DynamicPagination: FC = () => {
   const [users, setUsers] = useState<Array<IUser>>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [hasMore, setHasMore] = useState(true); 
+  const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
     getUsers();
@@ -31,20 +31,18 @@ const DynamicPagination: FC = () => {
   });
 
   useEffect(() => {
-    if (inView && !loading && hasMore) { 
+    if (inView && !loading && hasMore) {
       setCurrentPage((prev) => prev + 1);
     }
-  }, [inView, loading, hasMore]); 
+  }, [inView]);
 
   const getUsers = async () => {
     try {
       setLoading(true);
       const offset = (currentPage - 1) * limit;
-      const response = await axios.get(
-        `http://localhost:3001/users?offset=${offset}&limit=${limit}`
-      );
+      const response = await axios.get(`http://localhost:3001/users?offset=${offset}&limit=${limit}`);
       const newData = response.data;
-      if (newData.length === 0) { 
+      if (newData.length === 0) {
         setHasMore(false);
       } else {
         setUsers((prev) => [...prev, ...newData]);
@@ -63,8 +61,8 @@ const DynamicPagination: FC = () => {
         <CardUser data={user} key={user.userId}></CardUser>
       ))}
       {loading && <div>Loading...</div>}
-      {!loading && hasMore && <BlockObserver ref={ref}></BlockObserver>} 
-      {!hasMore && <div>No more users</div>} 
+      {!loading && hasMore && <BlockObserver ref={ref}></BlockObserver>}
+      {!hasMore && <div>No more users</div>}
     </ListStyled>
   );
 };

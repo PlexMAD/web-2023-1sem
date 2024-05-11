@@ -11,7 +11,8 @@ import DynamicPagination from "../../components/DynamicPagination";
   achievements: string[];
 }
 const limit = 15; */
-function Pagination() {/* 
+function Pagination() {
+  /* 
   const columns: ColumnsType<DataType> = [
     {
       title: "id",
