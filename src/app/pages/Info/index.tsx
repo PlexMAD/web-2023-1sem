@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import {
-  Page,
-  Text,
-  View,
-  Document,
-  StyleSheet,
-  PDFDownloadLink,
-  Image,
-} from "@react-pdf/renderer";
+import { Page, Text, View, Document, StyleSheet, PDFDownloadLink, Image } from "@react-pdf/renderer";
 
 const styles = StyleSheet.create({
   page: {
@@ -24,7 +16,7 @@ const styles = StyleSheet.create({
 
 interface IMyForm {
   name: string;
-  picture: string; 
+  picture: string;
 }
 
 const Info = () => {
@@ -79,13 +71,8 @@ const Info = () => {
       </form>
 
       {!!task?.name && (
-        <PDFDownloadLink
-          document={<MyDocument name={task.name} picture={task.picture} />}
-          fileName="somename.pdf"
-        >
-          {({ blob, url, loading, error }) =>
-            loading ? "Loading document..." : "Download now!"
-          }
+        <PDFDownloadLink document={<MyDocument name={task.name} picture={task.picture} />} fileName="somename.pdf">
+          {({ blob, url, loading, error }) => (loading ? "Loading document..." : "Download now!")}
         </PDFDownloadLink>
       )}
     </>
@@ -99,9 +86,7 @@ const MyDocument: React.FC<IMyForm> = ({ name, picture }) => {
         <View style={styles.section}>
           <Text>{name}</Text>
         </View>
-        <View style={styles.section}>
-          {picture && <Image src={picture} />}
-        </View>
+        <View style={styles.section}>{picture && <Image src={picture} />}</View>
       </Page>
     </Document>
   );
