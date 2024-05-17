@@ -17,7 +17,7 @@ const ListStyled = styled.div`
 `;
 
 const DynamicPagination: FC = () => {
-  const [users, setUsers] = useState<Array<IUser>>([]);
+  const [users, setUsers] = useState<IUser[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);

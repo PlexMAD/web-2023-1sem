@@ -35,6 +35,7 @@ const Create = () => {
               message: "Нужно меньше символов",
             },
           })}
+          placeholder="Введите заголовок"
         />
         <div>{errors.title?.message}</div>
         <input
@@ -45,6 +46,7 @@ const Create = () => {
               message: "Нужно больше символов",
             },
           })}
+          placeholder="Введите текст"
         />
         <div>{errors.text?.message}</div>
         <button disabled={!isValid} type="submit">

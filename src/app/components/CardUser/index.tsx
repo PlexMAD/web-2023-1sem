@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import "./styles.css";
 import styled from "styled-components";
 export interface IUser {
