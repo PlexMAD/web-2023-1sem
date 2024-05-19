@@ -51,8 +51,9 @@ const Info = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit(saveElement)}>
+      <form onSubmit={handleSubmit(saveElement)} role="xdxd">
         <input
+          placeholder="Введите текст"
           {...register("name", {
             required: "Поле обязательно для заполнения",
             minLength: {
@@ -62,6 +63,7 @@ const Info = () => {
           })}
         />
         <input
+          role="file-up"
           type="file"
           accept="image/*"
           {...register("picture", {

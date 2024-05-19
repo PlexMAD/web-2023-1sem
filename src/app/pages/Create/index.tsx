@@ -26,7 +26,7 @@ const Create = () => {
   return (
     <div>
       <h1>Создание нового поста</h1>
-      <form onSubmit={handleSubmit(saveElement)}>
+      <form onSubmit={handleSubmit(saveElement)} role="my-form">
         <input
           {...register("title", {
             required: "Поле обязательно для заполнения",
