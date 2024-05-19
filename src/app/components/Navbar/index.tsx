@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { PAGINATION_ROUTE, CREATE_ROUTE, MEDIAS_ROUTE, INFO_ROUTE } from "../../routes/configs";
 import "./styles.css";

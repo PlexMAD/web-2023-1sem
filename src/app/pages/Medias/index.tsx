@@ -1,4 +1,3 @@
-// src/pages/SocialMediaLinks/index.tsx
 import React from "react";
 
 const Medias = () => {
@@ -7,10 +6,10 @@ const Medias = () => {
       <h1>Ссылки на социальные сети</h1>
       <ul>
         <li>
-          <a href="">VK</a>
+          <a href="https://vk.com">VK</a>
         </li>
         <li>
-          <a href="">TELEGRAM</a>
+          <a href="https://telegram.me">TELEGRAM</a>
         </li>
       </ul>
     </div>

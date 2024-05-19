@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Page, Text, View, Document, StyleSheet, PDFDownloadLink, Image } from "@react-pdf/renderer";
 
 const styles = StyleSheet.create({
@@ -37,18 +37,23 @@ const Info = () => {
     reset();
   };
 
-  const convertToBase64 = (file: any) =>
-    new Promise<string>((resolve, reject) => {
+  const convertToBase64 = async (file: any) =>
+    await new Promise<string>((resolve, reject) => {
       const reader = new FileReader();
       reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result as string);
-      reader.onerror = (error) => reject(error);
+      reader.onload = () => {
+        resolve(reader.result as string);
+      };
+      reader.onerror = (error) => {
+        reject(error);
+      };
     });
 
   return (
     <>
-      <form onSubmit={handleSubmit(saveElement)}>
+      <form onSubmit={handleSubmit(saveElement)} role="xdxd">
         <input
+          placeholder="Введите текст"
           {...register("name", {
             required: "Поле обязательно для заполнения",
             minLength: {
@@ -58,6 +63,7 @@ const Info = () => {
           })}
         />
         <input
+          role="file-up"
           type="file"
           accept="image/*"
           {...register("picture", {
